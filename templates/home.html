@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Database</title>
+    <style>
+        body {background-color: #121212;}
+        h1 {color:greenyellow;font-weight:bolder;font-size:4rem; text-align: center;}
+        h3 {color:rgb(214, 146, 43);font-size: 1.75rem;}
+        select {width:25%;padding:15px 15px;border:none;border-radius:4px;background: linear-gradient(40deg,#129feb,#21d1ab);font-size: 1.2rem;font-weight: bold;outline: none;color: #f3efef;}
+        option {font-size: 1.2rem; font-weight: bold;background-color: #121212;color: #f3efef;}
+        input {color: #f3efef; position: relative; font-size: 1.5rem; background: linear-gradient(40deg,#129feb,#21d1ab);padding: 15px;width: 50%;display: inline-block;border-radius: 9999em;outline: none;transition: all 0.4s ease-in-out;}
+        ::placeholder {color: rgb(214, 209, 209); opacity: 0;}
+        input:hover {box-shadow: 3px -3px 30px #1beabd, -3px 3px 30px #10abff;}
+        button {background-color: #121212; color: #f3efef; border: 2px solid yellow; border-radius: 3rem; outline: none; padding: 1rem; margin-left: 2rem; width: 120px; transition: all 0.2s ease-in-out;}
+        button:hover {box-shadow: 3px -3px 30px #1beabd, -3px 3px 30px #10abff;}
+        div {text-align: center;}
+        a {color: rgb(214, 146, 43); outline: none; text-decoration: none; font-size: 1.25rem; display: inline-block; margin: 1rem; border: 2px solid yellow; border-radius: 5rem; padding: 1.25rem; transition: all 0.3s ease-in-out;}
+        a:hover {box-shadow: 3px -3px 30px #1beabd, -3px 3px 30px #10abff;}
+        
+    </style>
+</head>
+<body>
+    <h1> K-Drama Database </h1>
+    <div>
+        <a href = "/listTop20">View Top 20 K-Dramas</a>
+        <a href = "/listNewest20">View 20 Newest K-Dramas</a>
+    </div>
+    <br>
+    <br>
+    <form action = "{{ url_for('search') }}" method = "POST">
+
+        <h3>Find K-Dramas By Title</h3>
+        <br>
+        <input type = "title" name = "title" required minlength="1" placeholder="enter kdrama title..." /></br>
+        <!-- <button>Search</button> -->
+     </form>
+     <br>
+     <br>
+    
+     <br>
+     <form action = "{{ url_for('getActors') }}" method = "POST">
+
+        <h3>Find Actors of a K-Drama by K-Drama ID </h3>
+        <br>
+        <input type="number" name = "kd_id" required min="1" max="105" placeholder="enter id" /></br>
+        <!-- <button>Search</button> -->
+     </form>
+     <br>
+     <br>
+     <form action = "{{ url_for('getActorsShows') }}" method = "POST">
+
+        <h3>Find K-Dramas played by an Actor by Actor ID </h3>
+        <br>
+        <input type="number" name = "ac_id" required min="1" max="153" placeholder="enter id" /></br>
+        <!-- <button>Search</button> -->
+     </form>
+     <br>
+     <br>
+     <form action="{{ url_for('genreShows') }}" method="POST">
+        <h3>Find K-Dramas from a Genre</h3>
+        <select class="gnr" name="gnr">
+          <option value="Crime">Crime</option>
+          <option value="Drama">Drama</option>
+          <option value="Family">Family</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Romance">Romance</option>
+          <option value="Life">Life</option>
+          <option value="Melodrama">Melodrama</option>
+          <option value="Psychological">Psychological</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Military">Military</option>
+          <option value="Political">Political</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Law">Law</option>
+          <option value="Historical">Historical</option>
+          <option value="Horror">Horror</option>
+          <option value="Supernatural">Supernatural</option>
+          <option value="Action">Action</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="School">School</option>
+          <option value="Youth">Youth</option>
+          <option value="Business">Business</option>
+          <option value="Friendship">Friendship</option>
+          <option value="Medical">Medical</option>
+          <option value="Sports">Sports</option>
+          <option value="Music">Music</option>
+
+        </select>
+        <button>Search</button>
+     </form>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

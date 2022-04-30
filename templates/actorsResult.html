@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Database</title>
+    <style>
+      body {background-color: #121212;}
+      h1 {color:greenyellow;font-weight:bolder;font-size:4rem; text-align: center;}
+      h2 {color:rgb(214, 146, 43);font-size: 1.75rem; text-align: center;}
+      .backhomebtn {text-align: left;}
+      a {color: rgb(214, 146, 43); outline: none; text-decoration: none; font-size: 1.25rem; display: inline-block; margin: 1rem; border: 2px solid yellow; border-radius: 5rem; padding: 1.25rem; transition: all 0.3s ease-in-out;}
+      a:hover {box-shadow: 3px -3px 30px #1beabd, -3px 3px 30px #10abff;}
+      .tbl {margin-left:auto; margin-right:auto;}
+      #tt {text-align:center; margin-left:auto; margin-right:auto;}
+      td,tr {border-color: #ffffff; padding: 1.2rem; margin: 1rem; color: #f3efef;}
+      
+  </style>
+</head>
+<body>
+    <h1> K-Drama Database </h1>
+    <a href = "/"> ← Go back to home page</a>
+    <br>
+    <h2>K-Drama ID {{ kd_id }} --> {{ kd_title }}</h2>
+    <h2>Following are the actors who played in this K-Drama:</h2>
+    <br>
+    <div class="tbl">
+      <table id="tt" border = 5>
+         <thead>
+            <td>ActorID</td>
+            <td>Name</td>
+            <td>Gender</td>
+            <td>Age</td>
+
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["id"]}}</td>
+               <td>{{row["name"]}}</td>
+               <td>{{row["gender"]}}</td>
+               <td>{{row["age"]}}</td>
+            
+            </tr>
+         {% endfor %}
+      </table>
+    </div>
+     <br>
+</body>
+</html>
