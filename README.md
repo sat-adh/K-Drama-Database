@@ -1,2 +1,8 @@
 # K-Drama-Database
-Python Flask, HTML, CSS, SQLite
+Software: Python Flask, HTML, CSS, SQLite
+
+All data taken from https://mydramalist.com/
+None of it is mine. 
+
+
+
